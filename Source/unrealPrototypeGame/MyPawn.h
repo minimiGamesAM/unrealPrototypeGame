@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "MainCharacterMovementComponent.h"
 #include "MyPawn.generated.h"
 
 UCLASS()
@@ -15,15 +16,22 @@ public:
 	// Sets default values for this pawn's properties
 	AMyPawn();
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
-public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	UPROPERTY(EditAnyWhere, BlueprintReadOnly, Category = "Collision", meta = (DisplayName = "Pawn Collision AM"))
+	class UCapsuleComponent* Capsule;
+	
+	UPROPERTY(EditAnyWhere, BlueprintReadOnly, Category = "Camera", meta = (DisplayName = "Pawn Camera AM"))
+	class UCameraComponent* Camera;
+
+	UPROPERTY(EditAnyWhere, BlueprintReadOnly, Category = "Movement", meta = (DisplayName = "Pawn Movement AM"))
+	UMainCharacterMovementComponent* MovementComponent;
 };
