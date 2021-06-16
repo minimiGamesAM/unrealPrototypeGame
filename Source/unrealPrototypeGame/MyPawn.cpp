@@ -52,5 +52,7 @@ void AMyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 	PlayerInputComponent->BindAxis("MoveForward", MovementComponent, &UMainCharacterMovementComponent::MoveForward);
+	PlayerInputComponent->BindAxis("MoveRight", MovementComponent, &UMainCharacterMovementComponent::MoveRight);
+
 }
 
