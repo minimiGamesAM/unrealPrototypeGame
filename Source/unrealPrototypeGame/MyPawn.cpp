@@ -38,12 +38,19 @@ void AMyPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	//UE_LOG(LogTemp, Warning, TEXT("Tick Pawn"));
+
+}
+
+UMainCharacterMovementComponent* AMyPawn::GetMovementComponent() const
+{
+	return MovementComponent;
 }
 
 // Called to bind functionality to input
 void AMyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
+	PlayerInputComponent->BindAxis("MoveForward", MovementComponent, &UMainCharacterMovementComponent::MoveForward);
 }
 

@@ -19,6 +19,8 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	virtual UMainCharacterMovementComponent* GetMovementComponent() const override;
+
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -32,6 +34,6 @@ protected:
 	UPROPERTY(EditAnyWhere, BlueprintReadOnly, Category = "Camera", meta = (DisplayName = "Pawn Camera AM"))
 	class UCameraComponent* Camera;
 
-	UPROPERTY(EditAnyWhere, BlueprintReadOnly, Category = "Movement", meta = (DisplayName = "Pawn Movement AM"))
+	UPROPERTY(VisibleAnyWhere, BlueprintReadWrite, Category = "Movement", meta = (BluePrintProtected))
 	UMainCharacterMovementComponent* MovementComponent;
 };

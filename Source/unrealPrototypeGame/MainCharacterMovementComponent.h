@@ -14,4 +14,9 @@ class UNREALPROTOTYPEGAME_API UMainCharacterMovementComponent : public UPawnMove
 {
 	GENERATED_BODY()
 	
+public:
+
+	//UFUNCTION(BlueprintCallable, Category = "Input")
+	void MoveForward(float AxisValue);
+
 };
