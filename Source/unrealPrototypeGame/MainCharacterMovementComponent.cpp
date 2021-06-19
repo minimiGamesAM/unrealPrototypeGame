@@ -18,8 +18,10 @@ void UMainCharacterMovementComponent::MoveForward(float AxisValue)
 
 void UMainCharacterMovementComponent::MoveRight(float AxisValue)
 {
-	if (AxisValue != 0.0)
-	UE_LOG(LogTemp, Warning, TEXT("Move right activated %f"), AxisValue);
+	if (PawnOwner && UpdatedComponent == PawnOwner->GetRootComponent())
+	{
+		AddInputVector(PawnOwner->GetActorRightVector() * AxisValue);
+	}
 }
 
 void UMainCharacterMovementComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
