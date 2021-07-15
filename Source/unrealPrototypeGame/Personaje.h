@@ -25,11 +25,25 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	
+	UFUNCTION(BlueprintCallable)
+	float MoveForward(float AxisValue);
+	
+	UFUNCTION(BlueprintCallable)
+	float MoveRight(float AxisValue);
+
+protected:
+
+	//UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "Float", meta = (BluePrintProtected))
+	//float MovimientoRacioAdelante;
+
+	//UPROPERTY(EditAnyWhere, BlueprintReadWrite, Category = "Float", meta = (BluePrintProtected))
+	//float MovimientoRacioDerecha;
 
 private:
 	
 	//Input
-	UFUNCTION()
-	void MoveForward(float AxisValue);
-	void MoveRight(float AxisValue);
+	//UFUNCTION()
+	//void MoveForward(float AxisValue);
+	//void MoveRight(float AxisValue);
 };

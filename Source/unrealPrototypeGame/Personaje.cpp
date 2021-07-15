@@ -25,16 +25,21 @@ void APersonaje::Tick(float DeltaTime)
 
 }
 
-void APersonaje::MoveForward(float AxisValue)
+float APersonaje::MoveForward(float AxisValue)
 {
 	FVector Direction = FRotationMatrix(Controller->GetControlRotation()).GetScaledAxis(EAxis::X);
 	AddMovementInput(Direction, AxisValue);
+
+	//UE_LOG(LogTemp, Warning, TEXT("MoveForward %f"), AxisValue);
+
+	return 0.0f;
 }
 
-void APersonaje::MoveRight(float AxisValue)
+float APersonaje::MoveRight(float AxisValue)
 {
 	FVector Direction = FRotationMatrix(Controller->GetControlRotation()).GetScaledAxis(EAxis::Y);
 	AddMovementInput(Direction, AxisValue);
+	return 0.0f;
 }
 
 // Called to bind functionality to input
@@ -42,7 +47,7 @@ void APersonaje::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 	
-	PlayerInputComponent->BindAxis("MoveForward", this, &APersonaje::MoveForward);
-	PlayerInputComponent->BindAxis("MoveRight", this, &APersonaje::MoveRight);
+	//PlayerInputComponent->BindAxis("MoveForward", this, &APersonaje::MoveForward);
+	//PlayerInputComponent->BindAxis("MoveRight", this, &APersonaje::MoveRight);
 }
 
